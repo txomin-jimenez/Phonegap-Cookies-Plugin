@@ -50,11 +50,8 @@ public class Cookies extends CordovaPlugin {
     }
 	
 	public void clear() {
-		Log.v(TAG, "Clearing cookies...");
-        if (Build.VERSION.SDK_INT >= 21) {
-            CookieManager.getInstance().removeAllCookies(null);
-        } else {
-            CookieManager.getInstance().removeAllCookie();
-        }
+		Log.v(TAG, "Clearing XWalk cookies...");
+        
+        webView.getCookieManager().clearCookies();
     }
 }
